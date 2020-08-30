@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-user-login',
@@ -7,9 +8,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserLoginComponent implements OnInit {
 
-  constructor() { }
+  email: string = "";
+  pass: string = "";
+  constructor(private authService: AuthService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
+  onLogin(): void {
+    this.authService.loginUser(this.email, this.pass)
+    .then(res => console.log("usuario logueado"))
+      .catch(err => this.showErrorOnLogin(err));
+  }
+
+  // TODO reutilizar método de redirección si es necesario
+  // redirectOnLogin(): void {
+  //   localStorage.setItem("loguedUser", "true");
+  //   this.router.navigate(['/wishes']);
+  // }
+
+  showErrorOnLogin(err: String) {
+    console.error( err);
+  }
+
+  hideLogPanel(){
+    //TODO método para ocultar el panel de login
+  }
 }
