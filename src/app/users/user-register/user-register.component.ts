@@ -17,7 +17,7 @@ export class UserRegisterComponent implements OnInit {
 
   onRegister(): void {
     this.authService.registerUser(this.email, this.pass)
-    .then(res => console.log("usuario logueado"))
+    .then(res => console.log("usuario registrado... desde componente register"))
       .catch(err => this.showErrorOnLogin(err));
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-login',
@@ -10,14 +11,15 @@ export class UserLoginComponent implements OnInit {
 
   email: string = "";
   pass: string = "";
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
   }
 
   onLogin(): void {
     this.authService.loginUser(this.email, this.pass)
-    .then(res => console.log("usuario logueado"))
+    .then(res => this.router.navigate(["home"]))
       .catch(err => this.showErrorOnLogin(err));
   }
 
