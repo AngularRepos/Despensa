@@ -1,0 +1,34 @@
+.body {
+  padding: 10%;
+  background-color: #11435a;
+  color: #ffffff;
+  text-align: center;
+  overflow: auto;
+}
+
+.boton {
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  padding: 2%;
+}
+
+img{
+  width: 50%;
+}
+
+a:hover{
+  border: 0px;
+  background-color: yellow;
+  color: #000000;
+}
+
+@media (max-width: 480px) {
+  img{
+    width: 100%;
+  }
+
+  .body {
+    font-size: small;
+    color: black;
+  }
+}
