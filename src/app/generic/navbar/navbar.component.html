@@ -9,16 +9,19 @@
         <a class="nav-link" [routerLink]="['/home']" routerLinkActive="active" >Home </a>
       </li>
       <li class="nav-item" >
-        <a class="nav-link" [routerLink]="['login']" routerLinkActive="active" >Wishes List</a>
+        <a class="nav-link" *ngIf="isLogged" [routerLink]="['#']" routerLinkActive="active" >Despensa</a>
       </li>
       <li class="nav-item" >
-        <a class="nav-link" [routerLink]="['register']" routerLinkActive="active" >Users</a>
+        <a class="nav-link" *ngIf="isLogged" [routerLink]="['#']" routerLinkActive="active" >Compras</a>
+      </li>
+      <li class="nav-item" >
+        <a class="nav-link" *ngIf="isLogged" [routerLink]="['profile']" routerLinkActive="active" >Perfil</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <button type="button" *ngIf="!isLogged" class="btn btn-success my-2 my-sm-0 m-2" [routerLink]="['login']">Login</button>
       <button type="button" *ngIf="isLogged" class="btn btn-danger my-2 my-sm-0" (click)="onLogout()" >Logout</button>
-      <button type="button" class="btn btn-success my-2 my-sm-0 m-2" [routerLink]="['register']">Register</button>
+      <button type="button" *ngIf="!isLogged" class="btn btn-success my-2 my-sm-0 m-2" [routerLink]="['register']">Register</button>
     </form>
   </div>
 </nav>
