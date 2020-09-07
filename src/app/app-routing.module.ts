@@ -4,11 +4,13 @@ import { UserLoginComponent } from './users/user-login/user-login.component';
 import { UserRegisterComponent } from './users/user-register/user-register.component';
 import { HomeComponent } from './generic/home/home.component';
 import { Page404Component } from './generic/page404/page404.component';
+import { UserProfileComponent } from './users/user-profile/user-profile.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'login', component: UserLoginComponent },
   {path: 'register', component: UserRegisterComponent },
+  {path: 'profile', component: UserProfileComponent},
   {path: "home", component: HomeComponent },
   {path: '**', component: Page404Component}
 ];

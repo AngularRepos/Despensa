@@ -14,6 +14,7 @@ import { UserRegisterComponent } from './users/user-register/user-register.compo
 import { HomeComponent } from './generic/home/home.component';
 import { NavbarComponent } from './generic/navbar/navbar.component';
 import { Page404Component } from './generic/page404/page404.component';
+import { UserProfileComponent } from './users/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { Page404Component } from './generic/page404/page404.component';
     UserRegisterComponent,
     HomeComponent,
     NavbarComponent,
-    Page404Component
+    Page404Component,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
