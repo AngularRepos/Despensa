@@ -13,6 +13,8 @@ export class UserLoginComponent implements OnInit {
 
   email: string = "";
   pass: string = "";
+  errMessage: string = null;
+
   constructor(private authService: AuthService,
               private firebase: FirebaseApp,
               private router: Router) { }
@@ -27,7 +29,7 @@ export class UserLoginComponent implements OnInit {
         console.log("--login--")
         console.log(this.firebase.auth().currentUser.email);
       })
-      .catch(err => this.showErrorOnLogin(err));
+      .catch(err => this.errMessage = err.message);
   }
 
   // TODO reutilizar método de redirección si es necesario
@@ -37,6 +39,7 @@ export class UserLoginComponent implements OnInit {
   // }
 
   showErrorOnLogin(err: String) {
+
     console.error( err);
   }
 

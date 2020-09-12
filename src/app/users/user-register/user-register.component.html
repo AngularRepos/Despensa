@@ -15,7 +15,10 @@
         <input [(ngModel)]="pass" type="password" class="form-control" id="pass" name="pass">
       </div>
     </div>
-    <div class="row">
+    <div *ngIf="errMessage != null" class="row justify-content-center m-3">
+      <p class=" alert alert-danger">{{ errMessage }}</p>
+    </div>
+    <div class="row text-align-center">
       <div class="col">
         <button type="submit" class="btn btn-success" ><span aria-hidden="true">Send</span></button>
       </div>

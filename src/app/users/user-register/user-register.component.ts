@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { FirebaseApp } from '@angular/fire';
 
 @Component({
   selector: 'app-user-register',
@@ -11,7 +12,10 @@ export class UserRegisterComponent implements OnInit {
 
   email: string = "";
   pass: string = "";
+  errMessage: string = null;
+
   constructor(private authService: AuthService,
+              private firebase: FirebaseApp,
               private router: Router) { }
 
   ngOnInit() {
@@ -19,14 +23,14 @@ export class UserRegisterComponent implements OnInit {
 
   onRegister(): void {
     this.authService.registerUser(this.email, this.pass)
-    .then(res => this.router.navigate(['profile']))
-      .catch(err => this.showErrorOnLogin(err));
-  }
-
-
-
-  showErrorOnLogin(err: String) {
-    console.error( err);
+    .then(res => {
+      this.router.navigate(['profile']),
+      localStorage.setItem("currentUser", this.firebase.auth().currentUser.uid)
+      })
+      .catch(err => {
+        this.errMessage = err.message;
+        console.log("Register error: "+err);
+      });
   }
 
 }
