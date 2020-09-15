@@ -15,6 +15,8 @@ import { HomeComponent } from './generic/home/home.component';
 import { NavbarComponent } from './generic/navbar/navbar.component';
 import { Page404Component } from './generic/page404/page404.component';
 import { UserProfileComponent } from './users/user-profile/user-profile.component';
+import { PantryComponent } from './pantry/pantry.component';
+import { NewPantryComponent } from './pantry/new-pantry/new-pantry.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { UserProfileComponent } from './users/user-profile/user-profile.componen
     HomeComponent,
     NavbarComponent,
     Page404Component,
-    UserProfileComponent
+    UserProfileComponent,
+    PantryComponent,
+    NewPantryComponent
   ],
   imports: [
     BrowserModule,

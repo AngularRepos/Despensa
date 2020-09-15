@@ -1,0 +1,23 @@
+<div class="backdrop p-3">
+  <table class="table table-striped text-center">
+    <thead>
+      <tr>
+        <th>##</th>
+        <th>Description</th>
+        <th>Ver productos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pantry of pantryList; let i = index">
+        <td>{{ i+1 }} </td>
+        <td> {{ pantry.description}} </td>
+        <td><button class="btn btn-success mr-1" (click)="showProducts()">productos</button>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row text-center">
+    <div class="col">
+      <a class="btn btn-success" type="button" [routerLink]="['/new-despensa']">Crear nueva despensa</a>
+    </div>
+  </div>
+</div>

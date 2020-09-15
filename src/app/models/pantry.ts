@@ -1,7 +1,8 @@
 import { ShorthandPropertyAssignment } from "typescript";
 
-export class Despensa {
+export class Pantry {
   $key: string;
-  name: string;
+  description: string;
+  location: string;
   owner: string;
 }
